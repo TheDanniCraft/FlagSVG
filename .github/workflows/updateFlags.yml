@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "src/exported/**"
+      - ".github/workflows/updateFlags.yml"
   workflow_dispatch:
 
 jobs:

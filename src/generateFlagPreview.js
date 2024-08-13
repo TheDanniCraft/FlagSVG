@@ -24,13 +24,19 @@ const lightModeTextColor = 'black';
 // ---------------------------------------------------------------
 
 /**
- * Retrieves image file paths from a specified folder.
+ * Retrieves image file paths from a specified folder and sorts them alphabetically.
  * @param {string} folder - The folder path containing images.
- * @returns {string[]} - Array of image file paths.
+ * @returns {string[]} - Array of sorted image file paths.
  */
 function getImages(folder) {
-    return fs.readdirSync(folder).filter(file => /\.(svg)$/i.test(file))
-        .map(file => path.join(folder, file));
+    return fs.readdirSync(folder)
+        .filter(file => /\.(svg)$/i.test(file))
+        .map(file => path.join(folder, file))
+        .sort((a, b) => {
+            const current = path.basename(a, path.extname(a)).toLowerCase();
+            const next = path.basename(b, path.extname(b)).toLowerCase();
+            return current.localeCompare(next);
+        });
 }
 
 /**
