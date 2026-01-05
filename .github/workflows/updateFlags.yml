@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Bun ⚙️
         uses: oven-sh/setup-bun@v2
@@ -28,7 +28,7 @@ jobs:
         run: bun src/generateFlagPreview.js
 
       - name: Push to GitHub 🚀
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 🚀 Updated Flag List
           file_pattern: "output/"
