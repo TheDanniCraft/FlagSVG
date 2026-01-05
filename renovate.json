@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "rangeStrategy": "bump",
+  "branchPrefix": "renovate/",
+  "additionalBranchPrefix": "{{{manager}}}/",
+  "labels": ["dependencies", "renovate"],
+  "commitMessagePrefix": "⬆️ Bump ",
+  "commitMessageAction": "",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": " to {{newVersion}}",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^sharp$", "^svg2img$"],
+      "groupName": "image processing"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    }
+  ]
+}
